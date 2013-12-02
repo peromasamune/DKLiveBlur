@@ -71,10 +71,13 @@
     DKLiveBlurView *backgroundView = [[DKLiveBlurView alloc] initWithFrame: self.view.bounds];
     
     backgroundView.originalImage = [UIImage imageNamed:@"bg1.jpg"];
-    backgroundView.scrollView = self.tableView;
+    backgroundView.initialBlurLevel = 1.0;
+    backgroundView.initialGlassLevel = 1.0;
+    //self.backgroundBlurView.scrollView = self.tableView;
     backgroundView.isGlassEffectOn = YES;
+    [self.view addSubview:backgroundView];
     
-    self.tableView.backgroundView = backgroundView;
+    //self.tableView.backgroundView = self.backgroundBlurView;
     self.tableView.contentInset = UIEdgeInsetsMake(kDKTableViewDefaultContentInset, 0, 0, 0);
     
     [self.view addSubview: self.tableView];

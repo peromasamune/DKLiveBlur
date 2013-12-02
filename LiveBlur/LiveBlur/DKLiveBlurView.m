@@ -145,7 +145,7 @@
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            self.backgroundImageView.alpha = 0.0;
+            self.backgroundImageView.alpha = self.initialBlurLevel;
             self.backgroundImageView.image = blurredImage;
         });
     });
