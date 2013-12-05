@@ -38,7 +38,7 @@
 
         _backgroundImageView = [[UIImageView alloc] initWithFrame: self.bounds];
         
-        _backgroundImageView.alpha = 0.0;
+        _backgroundImageView.alpha = _initialBlurLevel;
         _backgroundImageView.contentMode = UIViewContentModeScaleToFill;
         _backgroundImageView.backgroundColor = [UIColor clearColor];
 
@@ -46,7 +46,7 @@
         
         _backgroundGlassView = [[UIView alloc] initWithFrame: self.bounds];
         
-        _backgroundGlassView.alpha = 0.0;
+        _backgroundGlassView.alpha = _initialGlassLevel;
         _backgroundGlassView.backgroundColor = kDKBlurredBackgroundDefaultGlassColor;
                 
         [self addSubview: _backgroundGlassView];
@@ -146,12 +146,12 @@
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            self.backgroundImageView.alpha = 0.0;
+            self.backgroundImageView.alpha = _initialBlurLevel;
             self.backgroundImageView.image = blurredImage;            
         });
     });
     
-    dispatch_release(queue);
+    //dispatch_release(queue);
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object
